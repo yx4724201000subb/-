@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "ruijie-eporta-tool"
+version = "1.6.2"
+description = "基于 Python 的锐捷 ePortal 网页认证自动登录/断线工具（Windows 增强版：图形设置窗口、开机自启、验证码自动识别、零多余依赖）"
+# 上游原作者，请保留；本仓库是它的 Windows 增强分支（见 README「鸣谢与协议」）
+authors = ["Redlnn <w731347477@gmail.com>"]
+readme = "README.md"
+license = "AGPL-3.0 only"
+repository = "https://github.com/Redlnn/Ruijie-ePorta-Tool"
+packages = [{ include = "src" }]
+
+[tool.poetry.dependencies]
+# 上游锁死在 >=3.9,<3.11；本分支放开到 3.14（实测可用），并去掉 pywin32 / tinyWinToast
+python = ">=3.9"
+pyyaml = ">=6.0"
+
+[tool.poetry.group.dev.dependencies]
+black = ">=21.1.0"
+flake8 = ">=4.0.1"
+isort = {extras = ["requirements_deprecated_finder"], version = ">=5.10.1" }
+pyinstaller = ">=4.10"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+skip-string-normalization = true
+safe = true
+
+[tool.isort]
+profile = "black"

@@ -1,0 +1,40 @@
+# 本配置文件内容需要根据学校服务器设置动态调整
+# 详细抓包与填写方法见 README.md（或原作者的 B 站视频 BV1TZ4y167b6）
+# 也可以双击「设置.bat」用图形界面修改，改完点保存即可。
+main:
+  version: 3 # 配置文件版本号，请勿更改
+
+funtion:
+  check_school_network: true # 是否检查校园网环境
+  disconnect_network: true # 设备已联网时是否询问断网（改为 false 则联网后直接退出）
+
+url:
+  server: http://127.0.0.1 # 校园网登录服务器的地址，用于判断当前网络环境是否为校园网环境
+  login: /eportal/InterFace.do?method=login # 校园网登录地址，无需服务器地址
+  logout: /eportal/InterFace.do?method=logout # 校园网断线地址，无需服务器地址
+
+# 请根据抓包结果调整条目与内容
+cookie: ''
+
+# 请根据抓包结果调整条目与内容（?key1=value1&key2=value2）
+# 明文密码把 passwordEncrypt 设为 false；抓包里是加密串则设为 true
+login_data:
+  userId: '00000000000'
+  password:
+  service:
+  queryString:
+  operatorPwd:
+  operatorUserId:
+  validcode:
+  passwordEncrypt: false
+
+# 下线请求用到的参数，一般来说不填也能用（?key1=value1&key2=value2）
+logout_data:
+
+# 开机自启后最多尝试多久、每隔多久试一次（秒）
+auto:
+  retry_timeout: 300
+  retry_interval: 10
+
+headers:
+  Referer:
